@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Newsletter semanal para montar tu proyecto en terreno propio: tu web en tu servidor, apps que sustituyen suscripciones, automatizaciones e IA aplicada. Casos reales, paso a paso.">
+  <meta property="og:title" content="Monta tu proyecto en terreno propio">
+  <meta property="og:description" content="Deja de depender de plataformas que no controlas. Cada semana, algo nuevo que aplicar para que tu proyecto sea tuyo de verdad.">
+  <meta property="og:type" content="website">
+  <title>Terreno Propio — la newsletter para dejar de vivir de prestado</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="tape" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <span class="brand">JAN&nbsp;GANGO</span>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <canvas class="sec-canvas" data-fx="beams" aria-hidden="true"></canvas>
+      <div class="sec-veil" aria-hidden="true"></div>
+      <h1 class="hero-title">
+        Estás leyendo esto en una plataforma que
+        <span class="mark">no controlas.</span>
+      </h1>
+      <div class="hero-body split">
+        <p>Instagram decide quién te ve.</p>
+        <p>Substack decide dónde escribes.</p>
+        <p>Tu diseñador web decide si mañana sigues online o no.</p>
+      </div>
+      <div class="hero-verdict split">
+        <p><strong>Nada de eso es tuyo.</strong></p>
+        <p><strong>Lo tienes prestado.</strong></p>
+      </div>
+      <a href="#suscribete" class="cta-inline">Quiero mi terreno propio →</a>
+    </section>
+
+    <!-- ARGUMENTO -->
+    <section class="argument">
+      <div class="split">
+        <p>Y funciona genial… hasta el día que uno de esos cierre, cambie las normas o le dé por petar.</p>
+        <p>Entonces el marrón te lo comes tú.</p>
+      </div>
+      <div class="split lead">
+        <p>No es que <em>vaya</em> a pasar.</p>
+        <p>Es que <em>ya ha pasado</em>.</p>
+        <p>A un montón de gente.</p>
+      </div>
+      <div class="split">
+        <p>La buena noticia: tiene arreglo.</p>
+        <p>Y no hace falta ser un crack técnico pa conseguirlo.</p>
+      </div>
+    </section>
+
+    <!-- QUÉ APRENDES -->
+    <section class="learn" id="que-aprendes">
+      <canvas class="sec-canvas sec-canvas--pillar" data-fx="pillar" aria-hidden="true"></canvas>
+      <h2 class="section-title">Aquí aprendes a tener lo tuyo de verdad</h2>
+      <div class="scroll-stack" data-scrollstack>
+        <article class="scroll-stack-card">
+          <span class="card-idx">01</span>
+          <h3>Tu web en tu servidor</h3>
+          <p>Sin depender de nadie. Tu sitio, tus reglas, tu botón de encendido.</p>
+        </article>
+        <article class="scroll-stack-card">
+          <span class="card-idx">02</span>
+          <h3>Apps que te ahorran pasta</h3>
+          <p>Sustituye esas suscripciones que pagas cada mes sin pensar.</p>
+        </article>
+        <article class="scroll-stack-card">
+          <span class="card-idx">03</span>
+          <h3>Automatizaciones</h3>
+          <p>Quítate de encima el curro repetitivo. Que lo haga la máquina.</p>
+        </article>
+        <article class="scroll-stack-card">
+          <span class="card-idx">04</span>
+          <h3>IA aplicada</h3>
+          <p>A lo que de verdad mueve tu proyecto. No humo: cosas que usas.</p>
+        </article>
+        <div class="scroll-stack-end" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- CIERRE / FORM -->
+    <section class="signup" id="suscribete">
+      <p class="signup-pitch">
+        Cada semana te llega algo nuevo que aplicar. Y cada cosa que aplicas es un trozo más de tu proyecto que pasa a ser <span class="mark">tuyo de verdad</span>.
+      </p>
+      <h2 class="signup-title">Suscríbete y monta tu proyecto en terreno propio.</h2>
+
+      <form class="form" action="https://keila.akidojo.dev/forms/nfrm_BzLMaLXv" method="post">
+        <label class="visually-hidden" for="contact_email">Correo electrónico</label>
+        <input
+          id="contact_email"
+          name="contact[email]"
+          type="email"
+          inputmode="email"
+          autocomplete="email"
+          placeholder="tu@correo.com"
+          required>
+
+        <!-- honeypot anti-spam de Keila: debe quedar vacío -->
+        <input aria-hidden="true" autocomplete="off" tabindex="-1" name="h[url]" style="display:none">
+
+        <div class="h-captcha" data-sitekey="10000000-ffff-ffff-ffff-000000000001" data-theme="dark"></div>
+
+        <button type="submit">Quiero mi terreno propio →</button>
+      </form>
+      <p class="form-note">Sin spam. Te das de baja cuando quieras.</p>
+
+      <p class="ps">
+        <span class="ps-tag">PD</span>
+        esto no va de hacerte rico durmiendo. Va de que mañana nadie pueda apagarte el negocio con un botón.
+      </p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>© 2026 Jan Gango</span>
+  </footer>
+
+  <script src="https://hcaptcha.com/1/api.js" async defer></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
