@@ -431,15 +431,104 @@ main > section {
 .foot {
   max-width: var(--wrap);
   margin-inline: auto;
-  padding: 2rem var(--pad) 3rem;
+  padding: 3rem var(--pad) 3rem;
   border-top: 1px solid var(--line);
+  font-family: var(--f-mono);
+  font-size: .78rem;
+  color: var(--muted);
+  text-align: left;
+}
+
+.foot-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 3rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 2rem;
+}
+
+.foot-brand { max-width: 26ch; }
+.foot-brand .brand {
+  display: inline-block;
+  margin-bottom: .75rem;
+  font-size: .82rem;
+}
+.foot-tagline {
+  color: var(--muted);
+  font-size: .78rem;
+  line-height: 1.6;
+}
+
+.foot-nav {
+  display: grid;
+  gap: .6rem;
+}
+.foot-nav a {
+  color: var(--paper);
+  text-decoration: none;
+  transition: color .15s;
+}
+.foot-nav a:hover { color: var(--yellow); }
+
+.foot-bottom {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
+  font-size: .72rem;
+}
+
+@media (max-width: 640px) {
+  .foot-top { flex-direction: column; gap: 2rem; }
+  .foot-bottom { flex-direction: column; align-items: flex-start; gap: .75rem; }
+}
+
+/* ---- Páginas legales ---- */
+.legal {
+  max-width: 46rem !important;
+  text-align: left !important;
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+.legal h1 {
+  font-size: clamp(2.1rem, 7vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  margin-bottom: .5rem;
+}
+.legal .legal-updated {
   font-family: var(--f-mono);
-  font-size: .74rem;
+  font-size: .78rem;
   color: var(--muted);
+  margin-bottom: 2.5rem;
+}
+.legal h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 2.5rem 0 .75rem;
+  color: var(--paper);
+}
+.legal p, .legal li { color: #CFCCBE; margin-bottom: .9rem; }
+.legal ul { padding-left: 1.25rem; margin-bottom: .9rem; }
+.legal a { color: var(--yellow); }
+.legal .fill {
+  background: rgba(255, 211, 77, .14);
+  border-bottom: 1px dashed var(--yellow);
+  padding: 0 .2em;
+  font-style: normal;
+}
+.legal .back {
+  display: inline-block;
+  margin-top: 3rem;
+  font-family: var(--f-mono);
+  font-size: .85rem;
+  color: var(--yellow);
+  text-decoration: none;
+  border-bottom: 2px solid var(--yellow);
+  padding-bottom: 2px;
 }
 
 /* ---------- Utilidades / a11y ---------- */
