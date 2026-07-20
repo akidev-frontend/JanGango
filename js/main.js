@@ -247,12 +247,16 @@ function initBeams(canvas, reduce) {
     gl.uniform2f(uRes, w, h);
   }
 
-  let running = true;
+  let running = false;
+  let visible = true;   // pestaña visible
+  let onScreen = false; // canvas dentro del viewport
   const start = performance.now();
+
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
 
   function render(now) {
     if (!running) return;
-    resize();
     gl.uniform1f(uTime, (now - start) / 1000);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
     requestAnimationFrame(render);
@@ -260,23 +264,32 @@ function initBeams(canvas, reduce) {
 
   if (reduce) {
     // Movimiento reducido: un solo frame estático
-    resize();
     gl.uniform1f(uTime, 8.0);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
     return;
   }
 
-  // Pausa cuando la pestaña no está visible (ahorra batería/CPU)
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      running = false;
-    } else if (!running) {
+  function sync() {
+    const shouldRun = visible && onScreen;
+    if (shouldRun && !running) {
       running = true;
       requestAnimationFrame(render);
+    } else if (!shouldRun) {
+      running = false;
     }
+  }
+
+  // Pausa cuando la pestaña no está visible (ahorra batería/CPU)
+  document.addEventListener('visibilitychange', () => {
+    visible = !document.hidden;
+    sync();
   });
 
-  requestAnimationFrame(render);
+  // Pausa cuando el canvas sale del viewport
+  new IntersectionObserver((entries) => {
+    onScreen = entries[0].isIntersecting;
+    sync();
+  }, { rootMargin: '100px' }).observe(canvas);
 }
 
 /* ============================================================
@@ -403,7 +416,7 @@ function initPillar(canvas, reduce) {
     varying vec2 vUv;
 
     const float STEP_MULT = 1.2;
-    const int   MAX_ITER  = 40;
+    const int   MAX_ITER  = 24;
     const int   WAVE_ITER = 2;
 
     // WebGL1 no trae tanh(): polyfill componentwise
@@ -503,12 +516,16 @@ function initPillar(canvas, reduce) {
     gl.uniform2f(uRes, w, h);
   }
 
-  let running = true;
+  let running = false;
+  let visible = true;
+  let onScreen = false;
   let tAcc = 0;
+
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
 
   function frame() {
     if (!running) return;
-    resize();
     tAcc += 0.016 * rotationSpeed;
     gl.uniform1f(uTime, tAcc);
     gl.uniform1f(uRotCos, Math.cos(tAcc * 0.3));
@@ -520,7 +537,6 @@ function initPillar(canvas, reduce) {
   }
 
   if (reduce) {
-    resize();
     tAcc = 6.0;
     gl.uniform1f(uTime, tAcc);
     gl.uniform1f(uRotCos, Math.cos(tAcc * 0.3));
@@ -531,14 +547,23 @@ function initPillar(canvas, reduce) {
     return;
   }
 
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      running = false;
-    } else if (!running) {
+  function sync() {
+    const shouldRun = visible && onScreen;
+    if (shouldRun && !running) {
       running = true;
       requestAnimationFrame(frame);
+    } else if (!shouldRun) {
+      running = false;
     }
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    visible = !document.hidden;
+    sync();
   });
 
-  requestAnimationFrame(frame);
+  new IntersectionObserver((entries) => {
+    onScreen = entries[0].isIntersecting;
+    sync();
+  }, { rootMargin: '100px' }).observe(canvas);
 }
