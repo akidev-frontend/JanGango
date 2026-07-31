@@ -232,8 +232,8 @@ function initBeams(canvas, reduce) {
   gl.uniform1f(u('uSpeed'), 0.28);
   gl.uniform1f(u('uBeams'), 11.0);
   gl.uniform1f(u('uNoise'), 1.75);
-  gl.uniform3f(u('uGold'), 1.0, 0.827, 0.302);   // #FFD34D
-  gl.uniform3f(u('uBg'), 0.043, 0.043, 0.051);   // #0B0B0D
+  gl.uniform3f(u('uGold'), 0.898, 0.882, 0.173); // #E5E12C
+  gl.uniform3f(u('uBg'), 0.0, 0.0, 0.0);         // #000000
 
   function resize() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -489,9 +489,9 @@ function initPillar(canvas, reduce) {
   const uTime = u('uTime'), uRes = u('uResolution');
   const uRotCos = u('uRotCos'), uRotSin = u('uRotSin');
 
-  // Props (paleta mostaza — cambia uTopColor/uBottomColor para volver al morado/rosa original)
-  gl.uniform3f(u('uTopColor'), 1.0, 0.827, 0.302);      // #FFD34D
-  gl.uniform3f(u('uBottomColor'), 0.792, 0.643, 0.0);   // #CAA400
+  // Props (paleta Thunder Lime — cambia uTopColor/uBottomColor para volver al morado/rosa original)
+  gl.uniform3f(u('uTopColor'), 0.898, 0.882, 0.173);    // #E5E12C
+  gl.uniform3f(u('uBottomColor'), 0.643, 0.635, 0.122); // #A4A21F
   gl.uniform1f(u('uIntensity'), 1.0);
   gl.uniform1f(u('uGlowAmount'), 0.005);
   gl.uniform1f(u('uPillarWidth'), 3.0);
