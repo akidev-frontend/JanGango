@@ -180,7 +180,7 @@ main > section {
   max-width: 46ch;
   color: var(--muted);
   display: grid;
-  gap: 1rem;
+  gap: 1.1rem;
 }
 
 .hero-body strong { color: var(--paper); }
@@ -204,7 +204,7 @@ main > section {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   display: grid;
-  gap: 1.15rem;
+  gap: 1.5rem;
   max-width: 52rem;
 }
 .argument p { color: var(--muted); max-width: 54ch; }
@@ -224,11 +224,11 @@ main > section {
   max-width: 100%;
   margin-inline: auto;
   display: grid;
-  gap: .35rem;
+  gap: .55rem;
 }
 .split > * { margin: 0; max-width: none; }
 
-.hero-verdict { margin-top: 1.25rem; }
+.hero-verdict { margin-top: 1.5rem; }
 .hero-verdict strong { color: var(--paper); }
 
 /* ---- Página de gracias / confirmación ---- */
@@ -558,22 +558,30 @@ main > section {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 640px) {
-  body { font-size: 1.05rem; }
+  body { font-size: 1.05rem; line-height: 1.8; }
 
   /* Hero con más aire arriba, sin quedar apretado */
   .hero {
     padding-top: clamp(2.5rem, 12vw, 4rem);
     padding-bottom: 3rem;
   }
-  .hero-body { margin-top: 1.5rem; }
+  .hero-body { margin-top: 1.5rem; gap: 1.25rem; }
+  .hero-verdict { margin-top: 1.75rem; }
   .cta-inline { margin-top: 2rem; }
+
+  /* Más aire entre las frases apiladas (hero y argumento) */
+  .split { gap: .75rem; }
+  .argument { gap: 1.85rem; }
+  .argument .lead p { line-height: 1.4; }
 
   /* Cards en columna, más presencia */
   .grid { grid-template-columns: 1fr; }
   .card { padding: 1.9rem 1.6rem; }
   .card-idx { font-size: .85rem; margin-bottom: 1rem; }
-  .card h3 { font-size: 1.3rem; }
-  .card p { font-size: 1rem; }
+  .card h3 { font-size: 1.3rem; margin-bottom: .65rem; }
+  .card p { font-size: 1rem; line-height: 1.7; }
+
+  .scroll-stack-card p { line-height: 1.7; }
 
   /* Formulario apilado y cómodo al pulgar */
   .form { gap: .85rem; }
