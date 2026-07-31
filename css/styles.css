@@ -1,19 +1,21 @@
 /* ============================================================
    TERRENO PROPIO — landing newsletter
-   Paleta: negro + amarillo eléctrico. Estética servidor/terminal.
+   Paleta: negro + amarillo (Thunder Lime). Estética servidor/terminal.
    ============================================================ */
 
 :root {
-  /* Paleta: Mostaza Medianoche */
-  --ink:    #0B0B0D;   /* fondo */
-  --ink-2:  #1E1F22;   /* superficies */
-  --paper:  #F2EFE8;   /* texto claro */
-  --muted:  #8A897F;   /* texto secundario */
-  --yellow: #FFD34D;   /* acento */
-  --amber:  #CAA400;   /* sombra del acento / mostaza oscura */
-  --line:   #2C2D30;   /* bordes */
+  /* Paleta de marca */
+  --ink:      #000000;              /* fondo — Negro */
+  --ink-2:    #40494E;              /* superficies, tarjetas — Gris oscuro (Midnight Slate) */
+  --paper:    #FFFFFF;              /* texto sobre fondo oscuro — Blanco */
+  --muted:    rgba(255, 255, 255, .6);   /* texto secundario — Blanco atenuado */
+  --yellow:   #E5E12C;              /* acento — Amarillo (Thunder Lime) */
+  --amber:    #A4A21F;              /* sombra del acento, tono oscurecido del amarillo */
+  --line:     rgba(217, 217, 214, .2);   /* bordes — Gris claro (Silver Mist) */
+  --light-bg: #D9D9D6;              /* fondos claros — Gris claro (Silver Mist) */
 
   --f-display: 'Space Grotesk', system-ui, sans-serif;
+  --f-title: 'Rock Salt', cursive;
   --f-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
   --wrap: 68rem;
@@ -41,7 +43,7 @@
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(115% 90% at 50% 42%, rgba(11, 11, 13, .30) 0%, rgba(11, 11, 13, .74) 58%, rgba(11, 11, 13, .92) 100%);
+    radial-gradient(115% 90% at 50% 42%, rgba(0, 0, 0, .30) 0%, rgba(0, 0, 0, .74) 58%, rgba(0, 0, 0, .92) 100%);
 }
 
 /* Las secciones con fondo animado recortan y apilan su contenido encima */
@@ -143,14 +145,14 @@ main > section {
   height: 8px;
   border-radius: 50%;
   background: var(--yellow);
-  box-shadow: 0 0 0 0 rgba(255, 211, 77, .6);
+  box-shadow: 0 0 0 0 rgba(229, 225, 44, .6);
   animation: pulse 2.4s ease-out infinite;
 }
 
 @keyframes pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(255, 211, 77, .55); }
-  70%  { box-shadow: 0 0 0 7px rgba(255, 211, 77, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 211, 77, 0); }
+  0%   { box-shadow: 0 0 0 0 rgba(229, 225, 44, .55); }
+  70%  { box-shadow: 0 0 0 7px rgba(229, 225, 44, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(229, 225, 44, 0); }
 }
 
 /* ---------- Hero ---------- */
@@ -164,18 +166,19 @@ main > section {
 }
 
 .hero-title {
-  font-weight: 700;
-  font-size: clamp(2.9rem, 11vw, 4.75rem);
-  line-height: 1.03;
-  letter-spacing: -.025em;
-  max-width: 16ch;
+  font-family: var(--f-title);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 6.5vw, 3.1rem);
+  line-height: 1.75;
+  letter-spacing: 0;
+  max-width: 17ch;
   text-wrap: balance;
 }
 
 .hero-body {
   margin-top: 2rem;
   max-width: 46ch;
-  color: #D8D5C7;
+  color: var(--muted);
   display: grid;
   gap: 1rem;
 }
@@ -204,7 +207,7 @@ main > section {
   gap: 1.15rem;
   max-width: 52rem;
 }
-.argument p { color: #CFCCBE; max-width: 54ch; }
+.argument p { color: var(--muted); max-width: 54ch; }
 
 .argument .lead p {
   font-family: var(--f-display);
@@ -243,7 +246,7 @@ main > section {
   color: var(--yellow);
   margin-bottom: 1.5rem;
 }
-.thanks .hero-body { margin-top: 1.75rem; color: #D8D5C7; }
+.thanks .hero-body { margin-top: 1.75rem; color: var(--muted); }
 .thanks-hint {
   margin-top: 1.75rem;
   font-family: var(--f-mono);
@@ -302,7 +305,7 @@ main > section {
 .scroll-stack-card {
   min-height: 14rem;
   padding: 2.75rem;
-  background: linear-gradient(155deg, #232427 0%, var(--ink-2) 60%);
+  background: linear-gradient(155deg, #5C6771 0%, var(--ink-2) 60%);
   border: 1px solid var(--line);
   border-radius: 26px;
   box-shadow: 0 24px 70px rgba(0, 0, 0, .55);
@@ -323,7 +326,7 @@ main > section {
   margin-bottom: .6rem;
 }
 .scroll-stack-card p {
-  color: #C4C1B4;
+  color: var(--muted);
   font-size: 1.05rem;
   max-width: 34ch;
 }
@@ -345,7 +348,7 @@ main > section {
 
 .signup-pitch {
   max-width: 48ch;
-  color: #CFCCBE;
+  color: var(--muted);
   margin-bottom: 2rem;
 }
 
@@ -379,11 +382,11 @@ main > section {
   padding: 1rem 1.1rem;
   border-radius: 0;
 }
-.form input::placeholder { color: #6B6857; }
+.form input::placeholder { color: rgba(255, 255, 255, .4); }
 .form input:focus-visible {
   outline: none;
   border-color: var(--yellow);
-  box-shadow: 0 0 0 3px rgba(255, 211, 77, .22);
+  box-shadow: 0 0 0 3px rgba(229, 225, 44, .22);
 }
 
 .form button {
@@ -511,11 +514,11 @@ main > section {
   margin: 2.5rem 0 .75rem;
   color: var(--paper);
 }
-.legal p, .legal li { color: #CFCCBE; margin-bottom: .9rem; }
+.legal p, .legal li { color: var(--muted); margin-bottom: .9rem; }
 .legal ul { padding-left: 1.25rem; margin-bottom: .9rem; }
 .legal a { color: var(--yellow); }
 .legal .fill {
-  background: rgba(255, 211, 77, .14);
+  background: rgba(229, 225, 44, .14);
   border-bottom: 1px dashed var(--yellow);
   padding: 0 .2em;
   font-style: normal;
@@ -581,7 +584,7 @@ main > section {
 }
 
 @media (max-width: 380px) {
-  .hero-title { font-size: 2.6rem; }
+  .hero-title { font-size: 1.75rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
